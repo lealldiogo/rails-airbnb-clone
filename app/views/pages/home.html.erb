@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# _navbar %>
+
+
+<h1>Vai Tirar um Som ?</h1>
+
+<%# Define the background Color & Class %>
+
+
+<%# Product Reseqrch Query %>
+
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= text_field_tag :city %>
+  <%= select_tag(:category, options_for_select([['Instrument', 1]]) ) %>
+  <%= select_tag(:design, options_for_select([['Piano', 1], ['Drums', 2], ['Guitare', 3], ['Bass', 4], ['Synthetiser', 5], ['Violin', 6]]) ) %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+
+
+<h2> Keezy da Semana <h2>
+
+
+
+<%# Define the Prodicts of the month  3x3 grid %>
+
+
+
+<%#Footer %>
+
+
