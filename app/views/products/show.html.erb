@@ -1,0 +1,3 @@
+<h1><%= @product.design %> by <%= @product.brand.capitalize %></h1>
+<h2>Price: <%= @product.price %></h2>
+<%= cl_image_tag @product.photo, height: 200, width: 400, crop: :fill %>

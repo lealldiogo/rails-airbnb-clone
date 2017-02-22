@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
@@ -47,6 +51,7 @@ class ProductsController < ApplicationController
     if @results.where('design LIKE ?', "%#{params[:design]}%").any?
       @results = @results.where('design LIKE ?', "%#{params[:design]}%")
     end
+
     # To be used after
     # @results = Instrument.search(params).select { |instrument| instrument.product.city == params[:city] }
   end
