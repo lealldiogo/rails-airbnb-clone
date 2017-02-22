@@ -19,21 +19,14 @@
   <div class="banner-content">
     <h1>Vamor tirar um som ? </h1>
     <%= form_tag("products/search", method: "get") do %>
-   <%= select_tag(:brand, options_for_select([['Gibson'],['Fender'],['Ibanez'],['Yamaha'], ['Epiphone']])) %>
+   <%= select_tag(:brand, options_for_select([['gibson'],['gender'],['ibanez'],['yamaha'], ['epiphone']])) %>
 
-  <%= select_tag(:group, options_for_select([['Eletric Guitar'],['Acoustic Guitar']])) %>
+  <%= select_tag(:group, options_for_select([['guitar'],['piano'],['bass']])) %>
 
   <%= text_field_tag(:design) %>
   <%= submit_tag("Search") %>
 
 <% end %>
-
-
-
-
-
-
-
 
   </div>
 </div>
