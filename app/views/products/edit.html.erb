@@ -1,0 +1,17 @@
+<h1>PASTA PRODUCTOS/EDIT</h1>
+
+<%= simple_form_for @product do |f| %>
+  <%= f.input :brand  %>
+  <%= f.input :design %>
+  <%= f.input :group %>
+  <%= f.input :year %>
+  <%= f.input :price %>
+  <%= f.input :city %>
+  <%= f.input :category, as: :hidden, input_html: { value: 'Instrument' } %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<%end%>
+
+
+
+<%= link_to "Lista", products_path %>
