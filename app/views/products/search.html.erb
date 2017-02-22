@@ -1,14 +1,23 @@
+<div class="container">
 
-<ul>
-<% @results.each do |search|%>
-    <li><%= search.brand %></li>
-    <li><%= search.design %></li>
-    <li><%= search.group %></li>
-    <li><%= search.year %></li>
-    <li><%= search.price %></li>
-    <li><%= search.city %></li>
-    <li><%= search.category %></li>
-    <li><%= search.description %></li>
-    <hr>
-<%end%>
-</ul>
+  <% @results.each do |p|%>
+
+    <div class="product">
+      <!-- <div class='product-upvote'>
+        <div class="product-arrow"></div>
+        <div class='product-count'>95</div>
+      </div> -->
+      <%= cl_image_tag p.photo, height: 100, width: 200, crop: :fill %>
+      <div class='product-body'>
+        <h3><%= link_to p.design, product_path(p) %></h3>
+        <p><%= p.description %></p>
+      </div>
+      <!-- <ul class="list-inline product-controls hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-heart"></i></a></li>
+        <li><a href=""><i class="fa fa-share"></i></a></li>
+        <li><a href=""><i class="fa fa-star"></i></a></li>
+      </ul> -->
+    </div>
+  <%end%>
+
+</div>
