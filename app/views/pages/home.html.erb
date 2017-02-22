@@ -1,2 +1,17 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= form_tag("products/search", method: "get") do %>
+  <%= label_tag(:brand, "Brand for:") %>
+  <%= select_tag(:brand, options_for_select([['Gibson'],['Fender'],['Ibanez'],['Yamaha'], ['Epiphone']])) %>
+  <%= label_tag(:group, "Group for:") %>
+  <%= select_tag(:group, options_for_select([['Eletric Guitar'],['Acoustic Guitar']])) %>
+  <%= label_tag(:design, "Design for:") %>
+  <%= text_field_tag(:design) %>
+  <%= submit_tag("Search") %>
+  <%#= select_tag(:city_id, '<option value="1">Lisbon</option>...') %>
+<% end %>
+
+
+
+<%= link_to 'Owner page', products_path %>
+

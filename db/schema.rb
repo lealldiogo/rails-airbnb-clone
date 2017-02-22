@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170222154906) do
     t.integer  "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "product_id"
+    t.index ["product_id"], name: "index_instruments_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -41,6 +43,10 @@ ActiveRecord::Schema.define(version: 20170222154906) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "brand"
+    t.string   "design"
+    t.string   "group"
+    t.integer  "year"
     t.string   "city"
     t.string   "photo"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -65,5 +71,6 @@ ActiveRecord::Schema.define(version: 20170222154906) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
+  add_foreign_key "instruments", "products"
   add_foreign_key "products", "users"
 end

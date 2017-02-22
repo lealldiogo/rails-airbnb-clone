@@ -1,0 +1,14 @@
+
+<ul>
+<% @results.each do |search|%>
+    <li><%= search.brand %></li>
+    <li><%= search.design %></li>
+    <li><%= search.group %></li>
+    <li><%= search.year %></li>
+    <li><%= search.price %></li>
+    <li><%= search.city %></li>
+    <li><%= search.category %></li>
+    <li><%= search.description %></li>
+    <hr>
+<%end%>
+</ul>
