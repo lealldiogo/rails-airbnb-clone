@@ -11,6 +11,7 @@
     <li><%= product.city %></li>
     <li><%= product.category %></li>
     <li><%= product.description %></li>
+    <li><%=cl_image_tag(product.photo, height: 100, width:100, crop: :fill)%></li>
     <%= link_to "Edit", edit_product_path(product)%>
     <%= link_to "Delete", product_path(product), method: :delete%>
     <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
