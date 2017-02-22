@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 
+gem 'faker'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
 gem 'devise'
