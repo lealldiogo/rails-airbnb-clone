@@ -1,5 +1,6 @@
 
 
+
 <%# Define the background Color & Class %>
 
 
@@ -14,11 +15,26 @@
 
 <%#= image_tag 'https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg' %>
 
-<div class="banner" style="background-size: 100% 100% !important; background-image: url('https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg');background-position: center top; background-size: cover;">
+<div class="banner" style="background-size: 100% 100% !important; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg');background-position: center top; background-size: cover;">
   <div class="banner-content">
-    <h1></h1>
-    <p>Vamor tirar um som ? </p>
-    <a class="btn btn-primary btn-lg">GET IT</a>
+    <h1>Vamor tirar um som ? </h1>
+    <%= form_tag("products/search", method: "get") do %>
+   <%= select_tag(:brand, options_for_select([['Gibson'],['Fender'],['Ibanez'],['Yamaha'], ['Epiphone']])) %>
+
+  <%= select_tag(:group, options_for_select([['Eletric Guitar'],['Acoustic Guitar']])) %>
+
+  <%= text_field_tag(:design) %>
+  <%= submit_tag("Search") %>
+  <%#= select_tag(:city_id, '<option value="1">Lisbon</option>...') %>
+<% end %>
+
+
+
+
+
+
+
+
   </div>
 </div>
 
@@ -31,6 +47,8 @@
 
 
 <%#Footer %>
+
+
 
 
 
