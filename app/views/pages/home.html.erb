@@ -1,30 +1,67 @@
+<div class="banner" style="background-image: linear-gradient(320deg, rgba(255,104,107,0.6) 0%, rgba(132,220,198,0.6) 90%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1487805231/guitar-lessons-toronto1_fnezqk.jpg');">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+        <div class="banner-content">
+          <h1>Vamor tirar um som ? </h1>
+          <%= form_tag("products/search", method: "get") do %>
+            <div>
+              <%= select_tag(:group, options_for_select([['Eletric Guitar'],['Bateria'],['Baixo'],['Teclado'],['Piano']]), {:class => 'btn btn-primary btn-lg'}) %>
+              <%= select_tag(:brand, options_for_select([['Gibson'],['Fender'],['Ibanez'],['Yamaha'], ['Epiphone']]), {:class => 'btn btn-primary btn-lg'}) %>
+              <%= text_field_tag :design, 'Detalhes...', class: 'form-control banner-field text-center'%>
+            </div>
+          <br>
+          <%= submit_tag'Search', :class => 'btn btn-primary btn-lg' %>
+          <br>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <% @products.each do |product|%>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card cardhover" style="background-image: url('<%=product.photo%>')">
+            <h3 class="card-description">
+            <%= link_to product.brand, product_path(product) %>
+             <span style="font-size: 15px;"><%= product.design %></span></h3>
+            <h4 class="card-user">R$<%= product.price %>*dia</h4>
+            <h5 class="card-top-description"><%= product.city %></h5>
+        </div>
+        <!-- STARS JUST FOR SHOW, LATER WHEN CREATE RANGER CONTROLLER IT SHOULD BE FILLED AUTO -->
+       <fieldset class="rating">
+
+         <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+
+         <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+
+         <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+
+         <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+
+         <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+
+         <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
 
 
+         <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
 
-<%# Define the background Color & Class %>
+         <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
 
+         <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 
-<%# Product Reseqrch Query %>
+         <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 
-<%# form_tag(products_path, method: :get) do %>
-  <%# text_field_tag :city %>
-  <%# select_tag(:category, options_for_select([['Instrument', 1]]) ) %>
-  <%# select_tag(:design, options_for_select([['Piano', 1], ['Drums', 2], ['Guitare', 3], ['Bass', 4], ['Synthetiser', 5], ['Violin', 6]]) ) %>
-  <%#submit_tag 'Search' %>
-<%# end %>
+       </fieldset>
+        <br>
+      </div>
+    <%end%>
 
-<%#= image_tag 'https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg' %>
-
-<div class="banner" style="background-size: 100% 100% !important; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg');background-position: center top; background-size: cover;">
-  <div>
-    <h1>Vamor tirar um som ? </h1>
-    <%= form_tag("products/search", method: "get") do %>
-   <%= select_tag(:brand, options_for_select([['gibson'],['gender'],['ibanez'],['yamaha'], ['epiphone']])) %>
-
-  <%= select_tag(:group, options_for_select([['guitar'],['piano'],['bass']])) %>
-
-  <%= text_field_tag(:design) %>
-  <%= submit_tag("Search") %>
-
-<% end %>
+  </div>
+</div>
+<br>
 
