@@ -7,8 +7,8 @@
           <h1>Vamor tirar um som ? </h1>
           <%= form_tag("products/search", method: "get") do %>
             <div>
-              <%= select_tag(:group, options_for_select([['Eletric Guitar'],['Bateria'],['Baixo'],['Teclado'],['Piano']]), {:class => 'btn btn-primary btn-lg'}) %>
-              <%= select_tag(:brand, options_for_select([['Gibson'],['Fender'],['Ibanez'],['Yamaha'], ['Epiphone']]), {:class => 'btn btn-primary btn-lg'}) %>
+              <%= select_tag(:group, options_for_select([['guitar'],['bass'],['piano']]), {:class => 'btn btn-primary btn-lg'}) %>
+              <%= select_tag(:brand, options_for_select([['gibson'],['fender'],['ibanez'],['yamaha'], ['musicman']]), {:class => 'btn btn-primary btn-lg'}) %>
               <%= text_field_tag :design, 'Detalhes...', class: 'form-control banner-field text-center'%>
             </div>
           <br>

@@ -7,7 +7,9 @@
 <h1><%= @booking.product.design %></h1>
 <h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
 <h3>Total of <%= (@booking.product.price * @days).round(2) %> </h3>
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :status, as: :hidden, input_html: { value: "deal reached" }%>
-  <%= f.button :submit, "Accept Rent" %>
+<% if current_user == @booking.product.user && @booking.status == "negotiating" %>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: "deal reached" }%>
+    <%= f.button :submit, "Accept Rent" %>
+  <% end %>
 <% end %>
