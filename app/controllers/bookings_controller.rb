@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
   def show
     if user_signed_in?
-      @booking = current_user.bookings.find(params[:id])
+      @booking = Booking.find(params[:id])
     else
       redirect_to new_user_session_path
     end
