@@ -12,4 +12,9 @@
     <%= f.input :status, as: :hidden, input_html: { value: "deal reached" }%>
     <%= f.button :submit, "Accept Rent" %>
   <% end %>
+<% elsif current_user == @booking.product.user && @booking.status == "deal reached" %>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: "closed" }%>
+    <%= f.button :submit, "Accept Rent" %>
+  <% end %>
 <% end %>
