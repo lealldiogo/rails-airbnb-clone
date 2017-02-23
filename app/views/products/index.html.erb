@@ -1,3 +1,11 @@
+<% @product_rentals.each do |p| %>
+  <% p.bookings.each do |b|%>
+    <%= link_to "Ver proposta", booking_path(b)%>
+  <% end %>
+<% end %>
+
+<hr>
+
 <h1>OWNER PRODUCTS</h1>
 
 <ul>
@@ -21,5 +29,3 @@
   <%= link_to "New", new_product_path(@product), class: "btn btn-success btn-lg" %>
 
     <%#= link_to "new", new_product.id_instrument_path %>
-
-

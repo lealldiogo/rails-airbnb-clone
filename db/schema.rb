@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20170223180835) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "negotiating"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "product_id"
     t.integer  "user_id"
     t.date     "start_date"
@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20170223180835) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "photo"
     t.string   "brand"
     t.string   "design"
     t.string   "group"
     t.integer  "year"
     t.string   "city"
+    t.string   "photo"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 

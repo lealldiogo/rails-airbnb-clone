@@ -15,24 +15,38 @@ class BookingsController < ApplicationController
 
   def show
     if user_signed_in?
-      @booking = current_user.bookings.find(params[:id])
+      @booking = Booking.find(params[:id])
+      @days = (@booking.end_date - @booking.start_date).to_i
     else
       redirect_to new_user_session_path
     end
   end
 
   def create
-    @booking = Booking.new(bookings_params)
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
       redirect_to bookings_path
     else
-      render product_path(bookings_params[:product])
+      render product_path(booking_params[:product])
     end
-
   end
 
-  def bookings_params
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    if @booking.save
+      if current_user == @booking.user
+        redirect_to bookings_path
+      else
+        redirect_to products_path
+      end
+    else
+      render 'update'
+    end
+  end
+
+  def booking_params
     params.require(:booking).permit(:status, :start_date, :end_date, :product_id)
   end
 end
