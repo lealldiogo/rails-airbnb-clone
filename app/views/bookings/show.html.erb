@@ -1,2 +1,4 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+
+<h1><%= @booking.product.design %></h1>
+<h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
+<p><%= @booking.user.email %> wants to rent it for <%= @booking.product.price %></p>
