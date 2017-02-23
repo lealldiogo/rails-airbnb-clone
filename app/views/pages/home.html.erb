@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+
+<%# Define the background Color & Class %>
+
+
+<%# Product Reseqrch Query %>
+
+<%# form_tag(products_path, method: :get) do %>
+  <%# text_field_tag :city %>
+  <%# select_tag(:category, options_for_select([['Instrument', 1]]) ) %>
+  <%# select_tag(:design, options_for_select([['Piano', 1], ['Drums', 2], ['Guitare', 3], ['Bass', 4], ['Synthetiser', 5], ['Violin', 6]]) ) %>
+  <%#submit_tag 'Search' %>
+<%# end %>
+
+<%#= image_tag 'https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg' %>
+
+<div class="banner" style="background-size: 100% 100% !important; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/564x/eb/1f/7a/eb1f7a5991c0e1036e3bc93cb0c800ac.jpg');background-position: center top; background-size: cover;">
+  <div>
+    <h1>Vamor tirar um som ? </h1>
+    <%= form_tag("products/search", method: "get") do %>
+   <%= select_tag(:brand, options_for_select([['gibson'],['gender'],['ibanez'],['yamaha'], ['epiphone']])) %>
+
+  <%= select_tag(:group, options_for_select([['guitar'],['piano'],['bass']])) %>
+
+  <%= text_field_tag(:design) %>
+  <%= submit_tag("Search") %>
+
+<% end %>
+
+<!-- <div class="container">
+  <div class="row">
+    <%# @products.each do |product|%>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card text-center" style="background-image: url('<%=product.photo%>')">
+            <h1>teste</h1>
+        </div>  insert <div class="card"> -->
+      </div>
+      </div>
+    <%#end%>
+
