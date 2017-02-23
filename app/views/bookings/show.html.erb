@@ -1,11 +1,13 @@
-<%if current_user == @booking.user %>
-  <h1><%= @booking.product.design %></h1>
-  <h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
-  <p><%= @booking.product.user.email %> is charging <%= @booking.product.price %> a day</p>
+<% if current_user == @booking.user # costumer %>
+  <p><%= @booking.product.user.email %>'s  <%= @booking.product.group %></p>
+<% elsif current_user == @booking.product.user #owner %>
+  <p><%= @booking.user.email %> wants to rent your <%= @booking.product.group %></p>
+<% end %>
 
-<% elsif current_user == @booking.product.user %>
-  <h1><%= @booking.product.design %></h1>
-  <h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
-  <p><%= @booking.user.email %> wants to rent it for <%= @booking.product.price %> a day</p>
-
+<h1><%= @booking.product.design %></h1>
+<h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
+<h3>Total of <%= (@booking.product.price * @days).round(2) %> </h3>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :status, as: :hidden, input_html: { value: "deal reached" }%>
+  <%= f.button :submit, "Accept Rent" %>
 <% end %>

@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
   def new
     if user_signed_in?
-      @products = current_user.products
+      @product = current_user.products.new
     else
       redirect_to new_user_session_path
     end

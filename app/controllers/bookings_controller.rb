@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   def show
     if user_signed_in?
       @booking = Booking.find(params[:id])
+      @days = (@booking.end_date - @booking.start_date).to_i
     else
       redirect_to new_user_session_path
     end
