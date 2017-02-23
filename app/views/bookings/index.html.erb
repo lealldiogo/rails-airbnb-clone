@@ -1,0 +1,5 @@
+<% @bookings.each do |b| %>
+  <h2><%= link_to b.product.design, booking_path(b) %></h2>
+  <p>from <%= b.start_date %> to <%= b.end_date %></p>
+<%end %>
+

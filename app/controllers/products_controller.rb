@@ -1,15 +1,21 @@
 class ProductsController < ApplicationController
+  # After everything is working, a way to make the app more organized would be to create a before action.
+  # This would force the user to sign in before checking the products and bookings
 
   def index
-    if current_user.nil?
-      redirect_to new_user_session_path
-    else
+    if user_signed_in?
       @products = current_user.products
+    else
+      redirect_to new_user_session_path
     end
   end
 
   def new
-    @product = current_user.products.new
+    if user_signed_in?
+      @products = current_user.products
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -31,12 +37,13 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path
     else
-      rendr 'update'
+      render 'update'
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    @booking = Booking.new
   end
 
   def destroy
@@ -60,7 +67,5 @@ class ProductsController < ApplicationController
 
   def product_params
    params.require(:product).permit(:price, :category, :description,:brand, :design, :group, :year, :city, :photo, :photo_cache)
-
   end
-
 end
