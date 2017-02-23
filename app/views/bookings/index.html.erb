@@ -1,14 +1,5 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
-
-<%= @bookings.each do |b| %>
-
-  <%= b.class %>
+<% @bookings.each do |b| %>
+  <h2><%= link_to b.product.design, booking_path(b) %></h2>
+  <p>from <%= b.start_date %> to <%= b.end_date %></p>
 <%end %>
 
-<% if user_signed_in? %>
-  <div>Signed in as... <%= current_user.email %></div>
-  <%= @user.bookings.each do |b| %>
-    <%= b.status %>
-  <% end %>
-<% end %>

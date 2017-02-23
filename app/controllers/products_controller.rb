@@ -1,18 +1,20 @@
 class ProductsController < ApplicationController
+  # After everything is working, a way to make the app more organized would be to create a before action.
+  # This would force the user to sign in before checking the products and bookings
 
   def index
     if user_signed_in?
-      redirect_to new_user_session_path
-    else
       @products = current_user.products
+    else
+      redirect_to new_user_session_path
     end
   end
 
   def new
     if user_signed_in?
-      redirect_to new_user_session_path
-    else
       @products = current_user.products
+    else
+      redirect_to new_user_session_path
     end
   end
 
