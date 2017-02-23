@@ -1,25 +1,7 @@
-<h1>OWNER PRODUCTS</h1>
-
-<ul>
-
-  <% @products.each do |p| %>
-    <li><%= p.brand %></li>
-    <li><%= p.design %></li>
-    <li><%= p.group %></li>
-    <li><%= p.year %></li>
-    <li><%= p.price %></li>
-    <li><%= p.city %></li>
-    <li><%= p.category %></li>
-    <li><%= p.description %></li>
-    <li><%=cl_image_tag(p.photo, height: 100, width:100, crop: :fill)%></li>
-    <%= link_to "Edit", edit_product_path(p)%>
-    <%= link_to "Delete", product_path(p), method: :delete%>
-    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
-    <hr>
-  <%end%>
-</ul>
-  <%= link_to "New", new_product_path(@product)%>
-
-    <%#= link_to "new", new_product.id_instrument_path %>
 
 
+<% @product_rentals.each do |p| %>
+  <% p.bookings.each do |b|%>
+    <%= link_to "Ver proposta", booking_path(b)%>
+  <% end %>
+<% end %>

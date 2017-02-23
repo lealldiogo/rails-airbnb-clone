@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
   def index
     if user_signed_in?
       @products = current_user.products
+      @product_rentals = []
+      @products.each do |prod|
+        prod.bookings.each { |book| @product_rentals << prod if book.status == "negotiating" || book.status == "deal reached" || book.status == "rented"}
+      end
     else
       redirect_to new_user_session_path
     end
