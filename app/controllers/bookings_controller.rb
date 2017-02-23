@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @user = current_user
   end
 
   def show
@@ -17,16 +16,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(bookings_params)
-
+    @booking.user = current_user
     if @booking.save
-      redirect_to user_bookings
+      redirect_to bookings_path
     else
-      render new_user_booking_path
+      render product_path(bookings_params[:product])
     end
 
   end
 
   def bookings_params
-    params.require(:bookings).permit(:status)
+    params.require(:booking).permit(:status, :start_date, :end_date, :product_id)
   end
 end

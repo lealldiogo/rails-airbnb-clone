@@ -1,11 +1,14 @@
 <h1><%= @product.design %> by <%= @product.brand.capitalize %></h1>
 <h2>Price: <%= @product.price %></h2>
 <%= cl_image_tag @product.photo, height: 200, width: 400, crop: :fill %>
+
 <%= simple_form_for @booking do |f| %>
   <%= f.input :start_date, as: :date, start_year: Date.today.year,
-                              end_year: Date.today.year, discard_day: true,
-                              order: [:month, :year] %>
+                              end_year: Date.today.year,
+                              order: [:day, :month, :year] %>
   <%= f.input :end_date, as: :date, start_year: Date.today.year,
-                              end_year: Date.today.year, discard_day: true,
-                              order: [:month, :year] %>
+                              end_year: Date.today.year,
+                              order: [:day, :month, :year] %>
+  <%= f.button :submit, "Open request" %>
+  <%= f.input :product_id, as: :hidden, input_html: { value: @product.id }%>
 <% end %>
