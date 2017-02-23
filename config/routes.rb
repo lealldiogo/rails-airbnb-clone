@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    resources :bookings
-  end
-
+  resources :bookings
 
   devise_for :users
   resources :products do
