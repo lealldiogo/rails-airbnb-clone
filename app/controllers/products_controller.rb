@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    if current_user.nil?
+    if user_signed_in?
       redirect_to new_user_session_path
     else
       @products = current_user.products
@@ -9,7 +9,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = current_user.products.new
+    if user_signed_in?
+      redirect_to new_user_session_path
+    else
+      @products = current_user.products
+    end
   end
 
   def create
@@ -31,7 +35,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path
     else
-      rendr 'update'
+      render 'update'
     end
   end
 
@@ -60,7 +64,5 @@ class ProductsController < ApplicationController
 
   def product_params
    params.require(:product).permit(:price, :category, :description,:brand, :design, :group, :year, :city, :photo, :photo_cache)
-
   end
-
 end
