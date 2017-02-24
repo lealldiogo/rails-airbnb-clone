@@ -1,19 +1,29 @@
-<h1>PASTA PRODUCTOS</h1>
+<div class="banner-user" style="background-image: linear-gradient(320deg, rgba(255,104,107,0.6) 0%, rgba(0,0,0,0.6) 70%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1487969208/Best-Drum-Set-Desktop-Wallpaper-Computer-Desktop-Background_uurstm.jpg');">
 
-<%= simple_form_for @product do |f| %>
-  <%= f.input :brand  %>
-  <%= f.input :design %>
-  <%= f.input :group %>
-  <%= f.input :year %>
-  <%= f.input :price %>
-  <%= f.input :city %>
-  <%= f.input :category, as: :hidden, input_html: { value: 'Instrument' } %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit %>
-<%end%>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <%= simple_form_for @product do |f| %>
+          <%= f.input :brand  %>
+          <%= f.input :design %>
+          <%= f.input :group %>
+          <%= f.input :year %>
+          <%= f.input :price %>
+          <%= f.input :city %>
+          <%= f.input :category, as: :hidden, input_html: { value: 'Instrument' } %>
+          <%= f.input :description %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit %>
+      <%end%>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
-<%= link_to "Lista", products_path %>
+
+
+
+
