@@ -4,28 +4,33 @@
   <% end %>
 <% end %>
 
-<hr>
+<h1> My  Keezies</h1>
 
-<h1>OWNER PRODUCTS</h1>
-
+<div class="container">
 <ul>
-
   <% @products.each do |product| %>
-    <li><%= product.brand %></li>
-    <li><%= product.design %></li>
-    <li><%= product.group %></li>
-    <li><%= product.year %></li>
-    <li><%= product.price %></li>
-    <li><%= product.city %></li>
-    <li><%= product.category %></li>
-    <li><%= product.description %></li>
-    <li><%=cl_image_tag(product.photo, height: 100, width:100, crop: :fill)%></li>
+  <div class="col-xs-12 col-sm-4">
+      <div class="card cardhover" style="background-image: url('<%=product.photo%>')">
+        <h3 class="card-description">
+         <%= link_to product.brand, product_path(product) %>
+             <span style="font-size: 15px;"><%= product.design %></span></h3>
+              <h4 class="card-user">R$<%= product.price %>*dia</h4>
+              <h5 class="card-top-description"><%= product.city %></h5>
+                </div>
     <%= link_to "Edit", edit_product_path(product), class: "btn btn-primary" %>
     <%= link_to "Delete", product_path(product), method: :delete, class: "btn btn-danger" %>
-    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
-    <hr>
+    <p style="margin-bottom: 30px;"> </p>    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
+    </div>
   <%end%>
+  <hr>
 </ul>
+
   <%= link_to "New", new_product_path(@product), class: "btn btn-success btn-lg" %>
+</div>
 
     <%#= link_to "new", new_product.id_instrument_path %>
+
+
+
+
+
