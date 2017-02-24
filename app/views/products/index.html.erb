@@ -1,3 +1,17 @@
+<h1>Rental requests</h1>
+
+<% @product_rentals.each do |p| %>
+  <%= cl_image_tag p.photo, class: "card-size-show" %>
+  <ul>
+  <% p.bookings.each do |b|%>
+    <li>
+    <p><%= b.user %></p>
+    <%= link_to "Ver proposta", booking_path(b)%>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
 <h1> My  Keezies</h1>
 
 <div class="container">
