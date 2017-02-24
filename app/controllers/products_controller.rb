@@ -48,6 +48,12 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @booking = Booking.new
+    @unavailable = []
+    @product.bookings.each do |book|
+      if book.status == "deal reached"
+        (book.start_date..book.end_date).each { |date| @unavailable << date.strftime('%d/%m/%Y') }
+      end
+    end
   end
 
   def destroy
