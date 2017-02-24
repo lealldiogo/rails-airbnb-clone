@@ -169,7 +169,7 @@ seed11.user = diogo
 seed11.save!
 
 seed12 = Product.new({
-  group: "microfone",
+  group: "microphone",
   brand: "shure",
   year: Faker::Number.between(1970, 2010),
   design: Faker::Name.first_name,
