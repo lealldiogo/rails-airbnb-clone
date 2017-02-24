@@ -10,14 +10,17 @@
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :password, required: true%>
             <%= f.input :password_confirmation, required: true %>
-          </div>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+
           <%= f.button :submit, "Sign up", class: "signup-button" %>
           <%- if devise_mapping.omniauthable? %>
-          <%- resource_class.omniauth_providers.each do |provider| %>
+           <%- resource_class.omniauth_providers.each do |provider| %>
             <%= link_to "Entrar com #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'box facebook-effects' %>
+           <% end -%>
           <% end -%>
-        <% end -%>
         <% end %>
+        </div>
         <%#= render "devise/shared/links" %>
       </div>
     </div>

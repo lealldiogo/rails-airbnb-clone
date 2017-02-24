@@ -63,6 +63,7 @@
 }
 
 .signup-button {
+  outline: none;
   position:relative;
   vertical-align: middle;
   display: inline-block;
@@ -92,7 +93,12 @@
   border-bottom: 3px solid #84dcc6;
 }
 
-.btn-default:active{
+.signup-button:disabled {
+  background: red;
+}
+.signup-button:active{
+  outline: none;
+
   position:relative !important ;
   vertical-align: middle !important ;
   display: inline-block !important ;
@@ -121,6 +127,7 @@
 .banner {
   color: white;
   height: 50vh;
+  min-height: 400px;
   text-align: center;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
