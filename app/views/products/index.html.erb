@@ -1,9 +1,3 @@
-<% @product_rentals.each do |p| %>
-  <% p.bookings.each do |b|%>
-    <%= link_to "Ver proposta", booking_path(b)%>
-  <% end %>
-<% end %>
-
 <h1> My  Keezies</h1>
 
 <div class="container">
@@ -17,15 +11,18 @@
               <h4 class="card-user">R$<%= product.price %>*dia</h4>
               <h5 class="card-top-description"><%= product.city %></h5>
                 </div>
+                <br>
     <%= link_to "Edit", edit_product_path(product), class: "btn btn-primary" %>
     <%= link_to "Delete", product_path(product), method: :delete, class: "btn btn-danger" %>
     <p style="margin-bottom: 30px;"> </p>    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
+
     </div>
-  <%end%>
-  <hr>
+    <%end%>
+    <%= link_to "New", new_product_path(@product), class: "btn btn-success btn-lg" %>
+
 </ul>
 
-  <%= link_to "New", new_product_path(@product), class: "btn btn-success btn-lg" %>
+
 </div>
 
     <%#= link_to "new", new_product.id_instrument_path %>
