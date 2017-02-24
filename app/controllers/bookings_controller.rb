@@ -24,8 +24,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.start_date = Date.strptime(booking_params[:start_date], '%d/%m/%Y')
+    @booking.end_date = Date.strptime(booking_params[:end_date], '%d/%m/%Y')
     @booking.user = current_user
-
     if @booking.save
       redirect_to bookings_path
     else
