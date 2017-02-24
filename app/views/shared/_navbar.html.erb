@@ -11,10 +11,10 @@
     <% if user_signed_in? %>
 
     <!-- My Products button-->
-    <%= link_to t(".top_call_to_action", default: "My products"), products_path, class: "navbar-wagon-item navbar-wagon-button-sign btn" %>
+    <%= link_to t(".top_call_to_action", default: "My products"), products_path, class: "navbar-wagon-item" %>
 
      <!-- My Bookings button -->
-    <%= link_to t(".top_call_to_action", default: "My bookings"), bookings_path, class: "navbar-wagon-item navbar-wagon-button-sign btn"%>
+    <%= link_to t(".top_call_to_action", default: "My bookings"), bookings_path, class: "navbar-wagon-item"%>
 
 
       <!-- Notification -->
@@ -49,8 +49,8 @@
     <% else %>
 
       <!-- Login text link -->
-<%= link_to t(".top_call_to_action", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-sign btn" %>
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button-log btn" %>
+<%= link_to t(".top_call_to_action", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item" %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %>
 
     <% end %>
 
