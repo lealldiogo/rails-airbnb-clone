@@ -19,18 +19,19 @@
       </div>
     </div>
   </div>
+  <div>&nbsp;</div>
 </div>
 <br>
 <div class="container">
   <div class="row">
-    <% @products.each do |product|%>
+    <% @products.each do |p|%>
       <div class="col-xs-12 col-sm-4">
-        <div class="card cardhover" style="background-image: url('<%=product.photo%>')">
+        <div class="card cardhover" style="background-image: url('<%=p.photo%>')">
             <h3 class="card-description">
-            <%= link_to product.brand, product_path(product) %>
-             <span style="font-size: 15px;"><%= product.design %></span></h3>
-            <h4 class="card-user">R$<%= product.price %>*dia</h4>
-            <h5 class="card-top-description"><%= product.city %></h5>
+            <%= link_to p.brand, product_path(p) %>
+             <span style="font-size: 15px;"><%= p.design %></span></h3>
+            <h4 class="card-user">R$<%= p.price %>*dia</h4>
+            <h5 class="card-top-description"><%= p.city %></h5>
         </div>
         <!-- STARS JUST FOR SHOW, LATER WHEN CREATE RANGER CONTROLLER IT SHOULD BE FILLED AUTO -->
        <fieldset class="rating">
