@@ -4,20 +4,24 @@
       <h1><%= @product.design %> by <%= @product.brand.capitalize %></h1>
       <%= cl_image_tag @product.photo, height: 300, width: 600, crop: :fill %>
     </div>
-    <div class="col-xs-6 col-md-4 booking-form">
+
+    <% unless current_user == @product.user %>
+      <div class="col-xs-6 col-md-4 booking-form">
 
 
 
-      <%= simple_form_for @booking do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %> <!-- can't be as: :date, otherwise the browser might overwrite it -->
-        <%= f.input :end_date, as: :string, input_html: { class: "datepicker"}  %>
-        <%= f.input :product_id, as: :hidden, input_html: { value: @product.id }%>
-        <%= f.button :submit, "Open request" %>
-      <% end %>
+        <%= simple_form_for @booking do |f| %>
+          <%= f.input :start_date, as: :string, input_html: { class: "datepicker"}  %> <!-- can't be as: :date, otherwise the browser might overwrite it -->
+          <%= f.input :end_date, as: :string, input_html: { class: "datepicker"}  %>
+          <%= f.input :product_id, as: :hidden, input_html: { value: @product.id }%>
+          <%= f.button :submit, "Open request" %>
+        <% end %>
 
 
-        <p>Preço por dia: <%= @product.price %></p>
-    </div>
+          <p>Preço por dia: <%= @product.price %></p>
+      </div>
+    <% end %>
+
   </div>
 </div>
 
