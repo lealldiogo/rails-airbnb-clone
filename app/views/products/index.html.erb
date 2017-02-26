@@ -21,22 +21,40 @@
     </div>
   </div>
   <div class="row">
-    <h2> My  Keezies</h2>
-    <% @products.each do |product| %>
-      <div class="col-xs-12 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-        <div class="card cardhover" style="background-image: url('<%=product.photo%>')">
-          <h3 class="card-description">
-          <%= link_to product.brand, product_path(product) %>
-          <span style="font-size: 15px;"><%= product.design %></span></h3>
-          <h4 class="card-user">R$<%= product.price %>*dia</h4>
-          <h5 class="card-top-description"><%= product.city %></h5>
+    <div class="panel panel-default">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h2> My  Keezies</h2>
         </div>
-        <br>
-        <%= link_to "Edit", edit_product_path(product), class: "btn btn-primary" %>
-        <%= link_to "Delete", product_path(product), method: :delete, class: "btn btn-danger" %>
-        <p style="margin-bottom: 30px;"> </p>    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
       </div>
-    <%end%>
+      <div class="panel-body">
+        <% @products.each do |product| %>
+          <div class="col-xs-12 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+            <div class="thumbnail card cardhover" style="background-image: url('<%=product.photo%>')">
+              <h3 class="card-description">
+              <%= link_to product.brand, product_path(product) %>
+              <span style="font-size: 15px;"><%= product.design %></span></h3>
+              <h4 class="card-user">R$<%= product.price %>*dia</h4>
+              <h5 class="card-top-description"><%= product.city %></h5>
+            </div>
+            <br>
+            <%= link_to edit_product_path(product) do%>
+              <button type="button" class="btn btn-info">
+                <span class="glyphicon glyphicon-pencil">
+                </span>
+              </button>
+            <% end %>
+            <%= link_to product_path(product), method: :delete do%>
+              <button type="button" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash">
+                </span>
+              </button>
+            <% end %>
+            <p style="margin-bottom: 30px;"> </p>    <%#= link_to "Edit", edit_product_instrument_path(product, product.instrument) %>
+          </div>
+        <%end%>
+      </div>
+    </div>
   </div>
   <%= link_to "New", new_product_path(@product), class: "btn btn-success btn-lg" %>
 </div>
