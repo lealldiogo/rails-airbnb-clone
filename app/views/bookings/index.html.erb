@@ -4,9 +4,8 @@
     <% @bookings.each do |b| %>
       <div class="col-xs-12 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
         <div class="panel panel-default">
-
         <% if b.status === "negotiating"%>
-          <div class="panel panel-danger">
+          <div class="panel panel-warning">
             <div class="panel-heading ">
               <h2><%= link_to b.product.brand.capitalize, booking_path(b) %> <%= link_to b.product.design, booking_path(b) %> <span style="float:right;" class="glyphicon glyphicon-remove-sign"></span></h2>
             </div>
@@ -16,7 +15,7 @@
               <h2><%= b.status %></h2>
             </div>
         <% elsif b.status === "denied" %>
-          <div class="panel panel-warning">
+          <div class="panel panel-danger">
             <div class="panel-heading ">
               <h2><%= link_to b.product.brand.capitalize, booking_path(b) %> <%= link_to b.product.design, booking_path(b) %> <span style="float:right;" class="glyphicon glyphicon-minus-sign"></h2>
             </div>
@@ -36,9 +35,8 @@
               <h2><%= b.status %></h2>
             </div>
         <%end%>
-
         </div>
       </div>
     <% end %>
-</div>
+  </div>
 </div>
