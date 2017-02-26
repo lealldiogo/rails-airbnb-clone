@@ -1,8 +1,21 @@
-<h1>Seus bookings</h1>
-
-<% @bookings.each do |b| %>
-  <h2><%= link_to b.product.design, booking_path(b) %></h2>
-  <p> <%= b.start_date %> to <%= b.end_date %></p>
-  <p><%= b.status %></p>
-<%end %>
+<div class="container">
+  <h1>Suas Reservas</h1>
+  <% @bookings.each do |b| %>
+    <div class="panel-group">
+    <% if b.status == "negotiating"%>
+      <div class="panel panel-danger">
+      <% else %>
+      <div class="panel panel-success">
+    <%end%>
+        <div class="panel-heading">
+          <h2><%= link_to b.product.brand.capitalize, booking_path(b) %> <%= link_to b.product.design, booking_path(b) %></h2>
+        </div>
+        <div class="panel-body">
+          <h4><%= b.start_date.strftime("%d/%m/%Y") %> até <%= b.end_date.strftime("%d/%m/%Y") %></h4>
+          <h2><%= b.status %></h2>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
