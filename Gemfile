@@ -1,7 +1,4 @@
-
-
 source 'https://rubygems.org' do
-
 
   gem "geocoder"
   gem 'faker'

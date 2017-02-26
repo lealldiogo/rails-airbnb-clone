@@ -11,11 +11,13 @@ a {
   color: white;
   position: relative;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
 }
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -69,6 +71,7 @@ a {
 .cardhover:hover {
   transform:scale(1.1);
 }
+
 .cardhover {
   transition: all 0.7s ease;
 }
