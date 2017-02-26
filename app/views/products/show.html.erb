@@ -1,7 +1,7 @@
  <div class="banner-user" style="background-image: linear-gradient(320deg, rgba(255,104,107,0.6) 0%, rgba(0,0,0,0.6) 60%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1487966110/478769_copy_amh0y9.jpg');">
   <div class="container">
-    <h1><%= @product.design %> by <%= @product.brand.capitalize %></h1>
-      <div class="row">
+    <div class="row">
+      <h1><%= @product.design %> by <%= @product.brand.capitalize %></h1>
         <div class="col-xs-12 col-md-6 col-sm-6 text-center">
           <hr>
           <%= cl_image_tag @product.photo, class: "card-size-show cardhover" %>
