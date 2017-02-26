@@ -1,7 +1,7 @@
 <h1> Keezy Encontrado </h1>
 <div class="container">
   <% @results.each do |p|%>
-    <div class="col-xs-12 col-sm-4">
+    <div style="margin-bottom: 20px;"  class="col-xs-12 col-sm-4">
       <div class="card cardhover" style="background-image: url('<%=p.photo%>')">
         <h3 class="card-description">
         <%= link_to p.brand, product_path(p) %>
