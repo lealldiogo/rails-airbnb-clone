@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       @products = current_user.products
       @product_rentals = []
       @products.each do |prod|
-        prod.bookings.each { |book| @product_rentals << prod if book.status == "negotiating" || book.status == "deal reached" || book.status == "rented"}
+        prod.bookings.each { |book| @product_rentals << prod if book.status == "em negociacão" || book.status == "aceito" || book.status == "alugado"}
       end
     else
       redirect_to new_user_session_path
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     @booking = Booking.new
     @unavailable = []
     @product.bookings.each do |book|
-      if book.status == "deal reached"
+      if book.status == "aceito"
         (book.start_date..book.end_date).each { |date| @unavailable << date.strftime('%d/%m/%Y') }
       end
     end
