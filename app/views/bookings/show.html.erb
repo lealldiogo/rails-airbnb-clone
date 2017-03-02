@@ -17,9 +17,9 @@
     <%= f.input :status, as: :hidden, input_html: { value: "negado" }%>
     <%= f.button :submit, "Negar" %>
   <% end %>
-<% elsif current_user == @booking.product.user && @booking.status == "em negociacão" %>
+<% elsif current_user == @booking.product.user && @booking.status == "aceito" %>
   <%= simple_form_for @booking do |f| %>
     <%= f.input :status, as: :hidden, input_html: { value: "alugado" }%>
-    <%= f.button :submit, "Alugado" %>
+    <%= f.button :submit, "Tudo Certo !" %>
   <% end %>
 <% end %>
