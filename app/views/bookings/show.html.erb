@@ -8,18 +8,18 @@
 <h3>from <%= @booking.start_date %> to <%= @booking.end_date %></h3>
 <h3>Total of <%= (@booking.product.price * @days).round(2) %> </h3>
 
-<% if current_user == @booking.product.user && @booking.status == "negotiating" %>
+<% if current_user == @booking.product.user && @booking.status == "em negociacão" %>
   <%= simple_form_for @booking do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "deal reached" }%>
-    <%= f.button :submit, "Accept Rent" %>
+    <%= f.input :status, as: :hidden, input_html: { value: "aceito" }%>
+    <%= f.button :submit, "Aceitar" %>
   <% end %>
 <%= simple_form_for @booking do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "denied" }%>
+    <%= f.input :status, as: :hidden, input_html: { value: "negado" }%>
     <%= f.button :submit, "Negar" %>
   <% end %>
-<% elsif current_user == @booking.product.user && @booking.status == "deal reached" %>
+<% elsif current_user == @booking.product.user && @booking.status == "em negociacão" %>
   <%= simple_form_for @booking do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "rented" }%>
-    <%= f.button :submit, "Rented" %>
+    <%= f.input :status, as: :hidden, input_html: { value: "alugado" }%>
+    <%= f.button :submit, "Alugado" %>
   <% end %>
 <% end %>
