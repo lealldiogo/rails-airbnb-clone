@@ -12,7 +12,7 @@
             </div>
             <div class="panel-body">
               <h4><%= b.start_date.strftime("%d/%m/%Y") %> até <%= b.end_date.strftime("%d/%m/%Y") %></h4>
-              <h2><%= b.status %></h2>
+              <h2><%= b.status %><span style="float:right;" class="btn btn-warning btn-lg">Falar com o dono</span></h2>
             </div>
           <% elsif b.status === "negado" %>
             <div class="panel panel-danger">
@@ -22,7 +22,7 @@
             </div>
             <div class="panel-body">
               <h4><%= b.start_date.strftime("%d/%m/%Y") %> até <%= b.end_date.strftime("%d/%m/%Y") %></h4>
-              <h2><%= b.status %><span style="float:right;" class="btn btn-danger btn-lg">Falar com o dono</span></h2>
+              <h2><%= b.status %><span style="float:right;" class="btn btn-danger btn-lg">Tentar novamente</span></h2>
             </div>
           <% elsif b.status === "aceito" %>
             <div class="panel panel-success">
